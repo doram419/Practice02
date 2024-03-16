@@ -3,51 +3,29 @@ package com.javaex.practice;
 import java.util.Scanner;
 
 public class Ex20 {
+//		알파벳을 입력 받아 자음 모음을 구분하세요.
+//		⚫ if~else문을 사용합니다.
+//		⚫ 영문 소문자 이외의 입력 값은 고려하지 않습니다.
 	public static void main(String[] args) {
-//		사번(양의정수)을 입력하면 팀을 확인할 수 있는 프로그램을 작성하세요.
-//		⚫ 팀은 A팀, B팀, C팀 3개의 팀으로 구성합니다.
-//		⚫ 사번을 3으로 나누어서 나머지가 0이면 A팀, 1이면 B팀, 2이면 C팀 으로 구분합니다.
-//		⚫ 사번 0번을 입력하면 "잘못된 사번입니다." 라고 출력하세요.
-		
-// 		스캐너 생성
+		// 스캐너 열기
 		Scanner sc = new Scanner(System.in);
-		
-//		사번(양의정수)을 입력
-//		(사번 0은 고려하지 않습니다.)
-		System.out.print("사번(정수)를 입력하세요\n사번 : ");
-		int employeeNum = sc.nextInt();
-		int quo = employeeNum % 3;
-		
-		// 팀 구분
-		// 사번을 3으로 나누어서 나머지가 0이면 A팀
-		if(employeeNum > 0)
+
+		// 알파벳을 입력 받기
+		System.out.print("알파벳 1글자(소문자)를 입력하세요\n알파벳 : ");
+		char alpha = sc.next().charAt(0);
+
+		// if~else문을 사용하여 자음 모음을 구분
+		// 영문 소문자 이외의 입력 값은 고려하지 않음
+		if(alpha == 'a' || alpha == 'e' || alpha == 'o' ||
+				alpha == 'u' || alpha == 'i')
 		{
-			// 기본을 A팀으로 둠 
-			String team = "A팀";
-			
-			// 나머지가 1이면 B팀
-			if(quo == 1)
-			{
-				team = "B팀";
-			}
-			// 나머지가 2이면 C팀
-			else if(quo == 2)
-			{
-				team = "C팀";
-			}
-			// 팀 출력
-			System.out.println(team + "입니다.");
+			System.out.println("모음입니다.");
 		}
-		else if(employeeNum == 0) 
+		else
 		{
-			System.out.println("잘못된 사번입니다.");
+			System.out.println("자음입니다.");
 		}
-		
-		else 
-		{
-			System.out.println("잘못 입력하셨습니다.");
-		}
-		
+
 		// 스캐너 닫기
 		sc.close();
 	}
